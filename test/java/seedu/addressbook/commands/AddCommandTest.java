@@ -58,7 +58,8 @@ public class AddCommandTest {
 
     @Test
     public void addCommand_invalidAddress_throwsException() {
-        final String[] invalidAddresses = { "", " " };
+        final String[] invalidAddresses = { "", " ", "nus", "12, Place, 23CC, 123123", "6666, Here, 13A, 132831",
+            "Blk 3, There, #12, 123" };
         for (String address : invalidAddresses) {
             assertConstructingInvalidAddCmdThrowsException(Name.EXAMPLE, Phone.EXAMPLE, true, Email.EXAMPLE,
                     true, address, true, EMPTY_STRING_SET);

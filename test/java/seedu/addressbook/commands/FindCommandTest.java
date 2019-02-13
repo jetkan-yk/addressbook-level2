@@ -39,7 +39,7 @@ public class FindCommandTest {
         assertFindCommandBehavior(new String[]{"Amy", "Amy"}, Arrays.asList(td.amy));
 
         //Keyword matching a word in address: not matched
-        assertFindCommandBehavior(new String[]{"Clementi"}, Collections.emptyList());
+        assertFindCommandBehavior(new String[]{"Blk 111, What Rd, 007, 987654"}, Collections.emptyList());
     }
 
     /**

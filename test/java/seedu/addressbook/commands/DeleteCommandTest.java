@@ -33,14 +33,17 @@ public class DeleteCommandTest {
     @Before
     public void setUp() throws Exception {
         Person johnDoe = new Person(new Name("John Doe"), new Phone("61234567", false),
-                new Email("john@doe.com", false), new Address("395C Ben Road", false), Collections.emptySet());
+                new Email("john@doe.com", false), new Address("101C, Thomson Road, #01, 307591", false), 
+                    Collections.emptySet());
         Person janeDoe = new Person(new Name("Jane Doe"), new Phone("91234567", false),
-                new Email("jane@doe.com", false), new Address("33G Ohm Road", false), Collections.emptySet());
+                new Email("jane@doe.com", false), new Address("Block 6, Fifth Lok Yang Road, 12-168, 629757", 
+                    false), Collections.emptySet());
         Person samDoe = new Person(new Name("Sam Doe"), new Phone("63345566", false),
-                new Email("sam@doe.com", false), new Address("55G Abc Road", false), Collections.emptySet());
+                new Email("sam@doe.com", false), new Address("Blk 15, Pandan Loop, #03-61D, 128233", false), 
+                    Collections.emptySet());
         Person davidGrant = new Person(new Name("David Grant"), new Phone("61121122", false),
-                new Email("david@grant.com", false), new Address("44H Define Road", false),
-                Collections.emptySet());
+                new Email("david@grant.com", false), new Address("6, College Ave East, 13A, 132831", false),
+                    Collections.emptySet());
 
         emptyAddressBook = TestUtil.createAddressBook();
         addressBook = TestUtil.createAddressBook(johnDoe, janeDoe, davidGrant, samDoe);
@@ -65,7 +68,8 @@ public class DeleteCommandTest {
     public void execute_targetPersonNotInAddressBook_returnsPersonNotFoundMessage()
             throws IllegalValueException {
         Person notInAddressBookPerson = new Person(new Name("Not In Book"), new Phone("63331444", false),
-                new Email("notin@book.com", false), new Address("156D Grant Road", false), Collections.emptySet());
+                new Email("notin@book.com", false), new Address("156D, Grant Road, #67, 231948", false), 
+                    Collections.emptySet());
         List<ReadOnlyPerson> listWithPersonNotInAddressBook = TestUtil.createList(notInAddressBookPerson);
 
         assertDeletionFailsDueToNoSuchPerson(1, addressBook, listWithPersonNotInAddressBook);
